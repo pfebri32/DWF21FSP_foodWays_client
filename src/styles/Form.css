@@ -38,6 +38,27 @@
   color: #b1b1b1;
 }
 
+.form__input-group > select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: rgba(210, 210, 210, 0.25);
+  border: 2px solid #d2d2d2;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 25px;
+  min-width: 350px;
+  padding: 13px 10px 12px 10px;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.form__input-group > select::-ms-expand {
+  display: none;
+}
+
 .form__submit {
   background: #433434;
   border: none;
@@ -70,4 +91,17 @@
 
 .form__link:hover {
   text-decoration: underline;
+}
+
+.form__select-group {
+  position: relative;
+}
+
+.form__select-arrow {
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(50%);
+
+  bottom: 50%;
+  right: 10px;
 }
