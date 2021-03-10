@@ -1,0 +1,47 @@
+.Hero {
+  background: #ffc700;
+}
+
+.hero__row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 -15px;
+  padding: 38px 0 40px 0;
+}
+
+.hero__header-group {
+  margin-right: 26px;
+}
+
+.hero__header {
+  color: #433434;
+  font-family: "Abhaya Libre", serif;
+  font-size: 55px;
+  font-weight: 800;
+  line-height: 65px;
+  margin-bottom: 10px;
+}
+
+.hero__header:last-child {
+  margin-bottom: 0;
+}
+
+.hero__subcontent {
+  display: flex;
+  margin-top: 28px;
+}
+
+.hero__underline {
+  background-color: #433434;
+  height: 3px;
+  margin: 9px 26px 0 0;
+  width: 150px;
+}
+
+.hero__description {
+  color: #000000;
+  font-size: 14px;
+  line-height: 19px;
+  width: 274px;
+}

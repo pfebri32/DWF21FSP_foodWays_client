@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
+
+// Components.
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 
+// Styles.
 import '../styles/Modal.css';
 
 const __Demo = () => {
