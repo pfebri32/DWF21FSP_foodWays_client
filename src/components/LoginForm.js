@@ -3,12 +3,15 @@ import { useState } from 'react';
 // Styles.
 import '../styles/Form.css';
 
-const LoginForm = () => {
+const LoginForm = ({ onSwitch }) => {
+    // States and Variables.
     const [form, setForm] = useState({
         email: '',
         password: '',
     });
     const { email, password } = form;
+
+    // Handlers.
     const onChange = (e) => {
         const name = e.target.name;
         setForm({
@@ -51,7 +54,7 @@ const LoginForm = () => {
                 <input className='form__submit' type='submit' value='Submit'/>
             </form>
             <div className='form__footer'>
-                <div className='form__link'>
+                <div className='form__link' onClick={onSwitch}>
                     Don't have an account? Click <span>Here</span>
                 </div>
             </div>
