@@ -50,3 +50,24 @@
   padding: 13px 10px 12px 10px;
   width: 100%;
 }
+
+.form__footer {
+  margin-top: 21px;
+}
+
+.form__link span {
+  font-weight: 800;
+}
+
+.form__link {
+  color: #b1b1b1;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 21px;
+  margin: auto;
+  width: fit-content;
+}
+
+.form__link:hover {
+  text-decoration: underline;
+}

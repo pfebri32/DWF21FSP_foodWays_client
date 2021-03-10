@@ -16,7 +16,9 @@ const LoginForm = () => {
                 <input className='form__submit' type='submit' value='Submit'/>
             </form>
             <div className='form__footer'>
-                
+                <div className='form__link'>
+                    Don't have an account? Click <span>Here</span>
+                </div>
             </div>
         </div>
     )
