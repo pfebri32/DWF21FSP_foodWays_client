@@ -1,8 +1,10 @@
 .Navbar {
   background-color: #ffc700;
+  overflow: hidden;
   position: fixed;
   padding: 22px 0;
-  width: 100%;
+  width: 100vw;
+  z-index: 99;
 
   top: 0;
 }

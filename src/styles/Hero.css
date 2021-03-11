@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   margin: 0 -15px;
-  padding: 38px 0 40px 0;
+  padding: 41px 0 40px 0;
 }
 
 .hero__header-group {
@@ -16,7 +16,7 @@
 
 .hero__header {
   color: #433434;
-  font-family: "Abhaya Libre", serif;
+  font-family: 'Abhaya Libre', serif;
   font-size: 55px;
   font-weight: 800;
   line-height: 65px;

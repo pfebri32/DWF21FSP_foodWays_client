@@ -1,0 +1,41 @@
+.nrc__container {
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 11px 15px 10px;
+}
+
+.nrc__container:hover {
+  text-decoration: none;
+}
+
+.nrc__preview {
+  margin-bottom: 14px;
+  max-height: 224px;
+}
+
+.nrc__preview > img {
+  max-height: 134px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.nrc__brand {
+  color: #000000;
+  font-family: 'Abhaya Libre', serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 21px;
+}
+
+.nrc__content {
+  padding: 0 6px;
+}
+
+.nrc__distance {
+  color: #000000;
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 6px;
+}

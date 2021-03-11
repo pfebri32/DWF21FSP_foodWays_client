@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Container, Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // Components.
 import LoginForm from './LoginForm';
@@ -8,8 +9,6 @@ import RegisterForm from './RegisterForm';
 // Styles.
 import '../styles/Navbar.css';
 import '../styles/Modal.css';
-
-
 
 const Navbar = () => {
     // States and variables.
@@ -32,7 +31,9 @@ const Navbar = () => {
                 <Container>
                     <div className='navbar__navs'>
                         <div className='navbar__logo'>
-                            <img src='/assets/logo.svg' alt='Foodways Logo'/>
+                            <Link to='/'>
+                                <img src='/assets/logo.svg' alt='Foodways Logo'/>
+                            </Link>
                         </div>
                         <div className='navbar__menus'>
                             <div className='navbar__link' onClick={onOpenRegister}>Register</div>
@@ -44,7 +45,7 @@ const Navbar = () => {
 
             <div style={{
                 backgroundColor: '#ffc700',
-                height: 87,
+                height: 84,
                 width: '100%',
             }}/>
 

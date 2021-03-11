@@ -1,0 +1,50 @@
+.pc__container {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 12px 11px 13px 10px;
+}
+
+.pc__image > img {
+  max-height: 134px;
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.pc__image {
+  margin-bottom: 14px;
+}
+
+.pc__name {
+  color: #000000;
+  font-family: 'Abhaya Libre', serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 21px;
+  margin-bottom: 6px;
+}
+
+.pc__price {
+  color: #ff1515;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.pc__content {
+  margin-bottom: 17px;
+  padding: 0 6px;
+}
+
+.pc__order {
+  align-items: center;
+  background-color: #ffc700;
+  border-radius: 5px;
+  color: #433434;
+  cursor: pointer;
+  display: flex;
+  font-weight: 800;
+  font-size: 14px;
+  justify-content: center;
+  line-height: 19px;
+  padding: 5px 15px 6px 15px;
+}
