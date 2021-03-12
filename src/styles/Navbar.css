@@ -1,9 +1,11 @@
 .Navbar {
+  align-items: center;
   background-color: #ffc700;
+  display: flex;
+  height: 91px;
+  width: 100vw;
   overflow: hidden;
   position: fixed;
-  padding: 22px 0;
-  width: 100vw;
   z-index: 99;
 
   top: 0;
@@ -14,10 +16,6 @@
   display: flex;
   justify-content: space-between;
   margin: 0 -15px;
-}
-
-.navbar__logo {
-  padding: 0 15px;
 }
 
 .navbar__link {

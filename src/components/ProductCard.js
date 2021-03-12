@@ -11,6 +11,7 @@ const ProductCard = ({ product }) => {
     const onOrderClick = () => {
         alert(`
             You order some food.\n
+            ID: ${id}\n
             Name: ${name}\n
             Price: ${price}\n
         `);

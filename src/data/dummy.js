@@ -313,6 +313,44 @@ export const products = [
     },
 ];
 
+export const cart = {
+    restaurantId: 5,
+    location: 'Harbour Building',
+    orders: [
+        {
+            productId: 22,
+            quantity: 1,
+        },
+        {
+            productId: 23,
+            quantity: 2,
+        },
+    ],
+};
+
+export const getOrders = () => {
+    const result = {
+        location: cart.location,
+        totalOrders: 0,
+        ordersPrice: 0,
+        deliveryPrice: 10000,
+        totalPrice: 0,
+        orders: [],
+    };
+
+    cart.orders.map(({productId, quantity}) => {
+        const product = products.find(product => product.id == productId);
+        product.quantity = quantity;
+        result.totalOrders += quantity;
+        result.ordersPrice += product.price * quantity;
+        result.orders.push(product);
+    });
+
+    result.totalPrice = result.ordersPrice + result.deliveryPrice;
+
+    return result;
+};
+
 export const getMostPopularRestaurants = (start, finish) => {
     const sorted = restaurants.sort((a, b) => a.popularRank - b.popularRank);
     return sorted.slice(start, finish);
@@ -323,10 +361,5 @@ export const getNearestRestaurant = (start, finish) => {
     return sorted.slice(start, finish);
 };
 
-export const getRestaurantById = (id) => {
-    return restaurants.find(restaurant => restaurant.id == id);
-};
-
-export const getRestaurantMenus = (id) => {
-    return products.filter(product => product.restaurantId == id);
-};
+export const getRestaurantById = (id) => restaurants.find(restaurant => restaurant.id == id);
+export const getRestaurantMenus = (id) => products.filter(product => product.restaurantId == id);
