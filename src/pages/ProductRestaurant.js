@@ -1,8 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 
-// Components.
-import ProductCard from '../components/ProductCard';
 
 // Data.
 import { getRestaurantById, getRestaurantMenus } from '../data/dummy';
@@ -14,7 +12,6 @@ const ProductRestaurant = () => {
     const renderProducts = () => (
         getRestaurantMenus(id).map(product => (
             <Col lg='3' key={product.id} style={{marginBottom: 42}}>
-                <ProductCard product={product}/>
             </Col>
         ))
     );

@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
+
+// Contexts.
+import { UserContext } from '../../contexts/userContext';
 
 // Styles.
 import '../../styles/Form.css';
 
-const RegisterForm = ({ onSwitch }) => {
+const RegisterForm = ({ onSwitch, onModalClose }) => {
+    // Contexts.
+    const [dispatch] = useContext(UserContext);
+
     // States and Variables.
+    const history = useHistory();
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -16,29 +24,33 @@ const RegisterForm = ({ onSwitch }) => {
     const { email, password, name, gender, phone, role } = form;
 
     // Handlers.
-    const onChange = (e) => {
+    const handleChange = (e) => {
         const name = e.target.name;
         setForm({
             ...form,
             [name]: e.target.value,
         });
     };
-    const onSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        alert(`
-            You pressed submit.\n
-            Email: ${email}\n
-            Password: ${password}\n
-            Full Name: ${name}\n
-            Gender: ${gender}\n
-            Phone: ${phone}\n
-            As User: ${role}\n
-        `);
+        dispatch({
+            type: 'LOGIN',
+            payload: {
+                email,
+                password,
+                name,
+                gender,
+                phone,
+                role,
+            },
+        });
+        onModalClose && onModalClose();
+        history.push('/');
     }
     return (
         <div className='Form'>
             <div className='form__header'>Register</div>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className='form__input-container'>
                     <div className='form__input-group'>
                         <input 
@@ -46,7 +58,7 @@ const RegisterForm = ({ onSwitch }) => {
                             type='email' 
                             placeholder='Email' 
                             value={email}
-                            onChange={onChange} 
+                            onChange={handleChange} 
                         />
                     </div>
                     <div className='form__input-group'>
@@ -55,7 +67,7 @@ const RegisterForm = ({ onSwitch }) => {
                             type='password' 
                             placeholder='Password' 
                             value={password}
-                            onChange={onChange} 
+                            onChange={handleChange} 
                         />
                     </div>
                     <div className='form__input-group'>
@@ -64,7 +76,7 @@ const RegisterForm = ({ onSwitch }) => {
                             type='text' 
                             placeholder='Full Name' 
                             value={name}
-                            onChange={onChange} 
+                            onChange={handleChange} 
                         />
                     </div>
                     <div className='form__input-group'>
@@ -73,7 +85,7 @@ const RegisterForm = ({ onSwitch }) => {
                             type='text' 
                             placeholder='Gender' 
                             value={gender}
-                            onChange={onChange} 
+                            onChange={handleChange} 
                         />
                     </div>
                     <div className='form__input-group'>
@@ -82,11 +94,11 @@ const RegisterForm = ({ onSwitch }) => {
                             type='text' 
                             placeholder='Phone' 
                             value={phone}
-                            onChange={onChange} 
+                            onChange={handleChange} 
                         />
                     </div>
                     <div className='form__input-group form__select-group'>
-                        <select name='role' onChange={onChange}>
+                        <select name='role' onChange={handleChange}>
                             <option value='user'>Customer</option>
                             <option value='partner'>Restaurant</option>
                         </select>

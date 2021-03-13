@@ -7,8 +7,8 @@ const Home = () => {
     return (
         <>
             <Hero/>
-            <PopularRestaurant style={{marginTop: 59}}/>
-            <NearestRestaurant style={{marginTop: 91, marginBottom: 62}}/>
+            <PopularRestaurant style={{marginTop: 60}}/>
+            <NearestRestaurant style={{marginTop: 60, marginBottom: 60}}/>
         </>
     )
 }

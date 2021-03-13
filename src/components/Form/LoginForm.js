@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
+
+// Contexts.
+import { UserContext } from '../../contexts/userContext';
 
 // Styles.
 import '../../styles/Form.css';
 
-const LoginForm = ({ onSwitch, rest }) => {
+const LoginForm = ({ onSwitch, onModalClose }) => {
+    // Contexts.
+    const [dispatch] = useContext(UserContext);
+
     // States and Variables.
+    const history = useHistory();
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -12,25 +20,33 @@ const LoginForm = ({ onSwitch, rest }) => {
     const { email, password } = form;
 
     // Handlers.
-    const onChange = (e) => {
+    const handleChange = (e) => {
         const name = e.target.name;
         setForm({
             ...form,
             [name]: e.target.value,
         });
     };
-    const onSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        alert(`
-            You pressed submit.\n
-            Email: ${email}\n
-            Password: ${password}\n
-        `);
+        dispatch({
+            type: 'LOGIN',
+            payload: {
+                email,
+                password,
+                name: 'Mr Default',
+                gender: 'Male',
+                phone: '088812344321',
+                role: 'user',
+            },
+        });
+        onModalClose && onModalClose();
+        history.push('/');
     }
     return (
         <div className='Form'>
             <div className='form__header'>Login</div>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className='form__input-container'>
                     <div className='form__input-group'>
                         <input 
@@ -38,7 +54,7 @@ const LoginForm = ({ onSwitch, rest }) => {
                             type='email' 
                             placeholder='Email' 
                             value={email}
-                            onChange={onChange} 
+                            onChange={handleChange} 
                         />
                     </div>
                     <div className='form__input-group'>
@@ -47,7 +63,7 @@ const LoginForm = ({ onSwitch, rest }) => {
                             type='password' 
                             placeholder='Password' 
                             value={password}
-                            onChange={onChange} 
+                            onChange={handleChange} 
                         />
                     </div>
                 </div>

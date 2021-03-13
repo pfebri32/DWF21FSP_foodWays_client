@@ -65,7 +65,7 @@ export const restaurants = [
     },
 ];
 
-export const products = [
+export const menus = [
     {
         id: 1,
         name: 'Whooper',
@@ -339,7 +339,7 @@ export const getOrders = () => {
     };
 
     cart.orders.map(({productId, quantity}) => {
-        const product = products.find(product => product.id == productId);
+        const product = menus.find(product => product.id == productId);
         product.quantity = quantity;
         result.totalOrders += quantity;
         result.ordersPrice += product.price * quantity;
@@ -362,4 +362,4 @@ export const getNearestRestaurant = (start, finish) => {
 };
 
 export const getRestaurantById = (id) => restaurants.find(restaurant => restaurant.id == id);
-export const getRestaurantMenus = (id) => products.filter(product => product.restaurantId == id);
+export const getRestaurantMenus = (id) => menus.filter(product => product.restaurantId == id);

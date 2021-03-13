@@ -5,12 +5,13 @@ import RestaurantCard from "./RestaurantCard";
 
 // Data.
 import { getMostPopularRestaurants } from '../data/dummy';
+import BrandCard from "./Card/BrandCard";
 
 const PopularRestaurant = ({ style }) => {
     const renderRestaurants = () => (
-        getMostPopularRestaurants(0, 4).map(restaurant => (
-            <Col lg='3' key={restaurant.id}>
-                <RestaurantCard restaurant={restaurant}/>
+        getMostPopularRestaurants(0, 4).map(({name, logo, id}) => (
+            <Col lg='3' key={id}>
+                <BrandCard name={name} logo={logo}/>
             </Col>
         ))
     );

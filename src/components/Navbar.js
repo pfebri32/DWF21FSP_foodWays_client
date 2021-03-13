@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+// Contexts.
+import { UserContext } from '../contexts/userContext';
 
 // Components.
 import LoginForm from './Form/LoginForm';
@@ -11,18 +14,20 @@ import '../styles/Navbar.css';
 import '../styles/Modal.css';
 
 const Navbar = () => {
+    // Contexts.
+    const [state] = useContext(UserContext);
+
     // States and variables.
-    const [isLogin, setIsLogin] = useState(true);
     const [show, setShow] = useState(false);
     const [hasAccount, setHasAccount] = useState(false);
 
     // Handlers.
     const handleClose = () => setShow(false);
-    const onOpenLogin = () => {
+    const handleOpenLogin = () => {
         setHasAccount(true);
         setShow(true);
     };
-    const onOpenRegister = () => {
+    const handleOpenRegister = () => {
         setHasAccount(false);
         setShow(true);
     };
@@ -38,7 +43,7 @@ const Navbar = () => {
                         </div>
                         <div className='navbar__menus'>
                             {
-                                isLogin ? (
+                                state.isLogin ? (
                                     <>
                                         <Link  className='navbar__icon-link' to='/cart'>
                                             <img src='/assets/basket.svg' alt='Cart Icon'/>
@@ -49,8 +54,8 @@ const Navbar = () => {
                                     </>
                                 ) : (
                                     <>
-                                        <div className='navbar__link' onClick={onOpenRegister}>Register</div>
-                                        <div className='navbar__link' onClick={onOpenLogin}>Login</div>
+                                        <div className='navbar__link' onClick={handleOpenRegister}>Register</div>
+                                        <div className='navbar__link' onClick={handleOpenLogin}>Login</div>
                                     </>
                                 )
                             }
@@ -70,9 +75,9 @@ const Navbar = () => {
             >
                 { 
                     hasAccount ? 
-                        <LoginForm onSwitch={onOpenRegister}/> 
+                        <LoginForm onSwitch={handleOpenRegister} onModalClose={handleClose}/> 
                     : 
-                        <RegisterForm onSwitch={onOpenLogin}/> 
+                        <RegisterForm onSwitch={handleOpenLogin} onModalClose={handleClose}/> 
                 }
             </Modal>
         </>
