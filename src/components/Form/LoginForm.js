@@ -3,7 +3,7 @@ import { useState } from 'react';
 // Styles.
 import '../../styles/Form.css';
 
-const Login = ({ onSwitch }) => {
+const LoginForm = ({ onSwitch, rest }) => {
     // States and Variables.
     const [form, setForm] = useState({
         email: '',
@@ -62,4 +62,4 @@ const Login = ({ onSwitch }) => {
     )
 }
 
-export default Login;
+export default LoginForm;

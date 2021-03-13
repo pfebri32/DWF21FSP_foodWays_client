@@ -10,7 +10,9 @@
 }
 
 main {
+  display: flex;
   flex: 1;
+  flex-direction: column;
 }
 
 .app__header {
@@ -28,4 +30,13 @@ main {
 .app__button {
   background: #433434;
   border-radius: 5px;
+}
+
+.app__main-center {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem 0;
 }

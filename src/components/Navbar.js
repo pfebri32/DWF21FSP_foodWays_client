@@ -3,8 +3,8 @@ import { Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 // Components.
-import LoginForm from './Form/Login';
-import RegisterForm from './Form/Register';
+import LoginForm from './Form/LoginForm';
+import RegisterForm from './Form/RegisterForm';
 
 // Styles.
 import '../styles/Navbar.css';
