@@ -1,8 +1,8 @@
 .Form {
   background: #ffffff;
   border-radius: 10px;
-  padding: 41px 33px 37px 33px;
-  width: fit-content;
+  padding: 45px 30px 30px 30px;
+  width: 100%;
 }
 
 .form__header {
@@ -10,9 +10,15 @@
   font-size: 36px;
   font-weight: 900;
   line-height: 49px;
-  margin-bottom: 29px;
+  margin-bottom: 30px;
 }
 
+/* Container */
+.form__input-container {
+  min-width: 350px;
+}
+
+/* Form Input Group */
 .form__input-group {
   margin-bottom: 20px;
 }
@@ -21,15 +27,16 @@
   margin-bottom: 0;
 }
 
-.form__input-group > input {
+.form__input-group > input,
+.form__input-group > select {
   background: rgba(210, 210, 210, 0.25);
   border: 2px solid #d2d2d2;
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 18px;
   line-height: 25px;
-  min-width: 350px;
-  padding: 13px 10px 12px 10px;
+  padding: 12px 15px;
+  width: 100%;
 }
 
 .form__input-group > input::placeholder,
@@ -42,21 +49,26 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: rgba(210, 210, 210, 0.25);
-  border: 2px solid #d2d2d2;
-  border-radius: 5px;
-  box-sizing: border-box;
   cursor: pointer;
-  font-size: 18px;
-  line-height: 25px;
-  min-width: 350px;
-  padding: 13px 10px 12px 10px;
   text-indent: 1px;
-  text-overflow: "";
+  text-overflow: '';
 }
 
 .form__input-group > select::-ms-expand {
   display: none;
+}
+
+.form__select-group {
+  position: relative;
+}
+
+.form__select-arrow {
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(50%);
+
+  bottom: 50%;
+  right: 15px;
 }
 
 .form__submit {
@@ -67,13 +79,13 @@
   font-size: 18px;
   font-weight: 900;
   line-height: 25px;
-  margin-top: 36px;
-  padding: 13px 10px 12px 10px;
+  margin-top: 30px;
+  padding: 12px 15px;
   width: 100%;
 }
 
 .form__footer {
-  margin-top: 21px;
+  margin-top: 24px;
 }
 
 .form__link span {
@@ -91,17 +103,4 @@
 
 .form__link:hover {
   text-decoration: underline;
-}
-
-.form__select-group {
-  position: relative;
-}
-
-.form__select-arrow {
-  pointer-events: none;
-  position: absolute;
-  transform: translateY(50%);
-
-  bottom: 50%;
-  right: 10px;
 }

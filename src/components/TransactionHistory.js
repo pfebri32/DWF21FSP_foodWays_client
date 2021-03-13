@@ -1,4 +1,4 @@
-import '../styles/HistoryCard.css'
+import '../styles/HistoryCard.css';
 
 const histories = [
     {

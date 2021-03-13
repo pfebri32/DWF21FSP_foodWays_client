@@ -3,8 +3,8 @@ import { Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 // Components.
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
+import LoginForm from './Form/Login';
+import RegisterForm from './Form/Register';
 
 // Styles.
 import '../styles/Navbar.css';
@@ -12,6 +12,7 @@ import '../styles/Modal.css';
 
 const Navbar = () => {
     // States and variables.
+    const [isLogin, setIsLogin] = useState(true);
     const [show, setShow] = useState(false);
     const [hasAccount, setHasAccount] = useState(false);
 
@@ -36,18 +37,29 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <div className='navbar__menus'>
-                            <div className='navbar__link' onClick={onOpenRegister}>Register</div>
-                            <div className='navbar__link' onClick={onOpenLogin}>Login</div>
+                            {
+                                isLogin ? (
+                                    <>
+                                        <Link  className='navbar__icon-link' to='/cart'>
+                                            <img src='/assets/basket.svg' alt='Cart Icon'/>
+                                        </Link>
+                                        <div className='navbar__user-profile'>
+                                            <img src='/assets/profile.jpg' alt='User Profile'/>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className='navbar__link' onClick={onOpenRegister}>Register</div>
+                                        <div className='navbar__link' onClick={onOpenLogin}>Login</div>
+                                    </>
+                                )
+                            }
                         </div>
                     </div>
                 </Container>
             </div>
 
-            <div style={{
-                backgroundColor: '#ffc700',
-                height: 91,
-                width: '100%',
-            }}/>
+            <div className='navbar__fixed-filler'/>
 
             <Modal 
                 centered

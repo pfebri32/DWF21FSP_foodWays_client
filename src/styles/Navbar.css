@@ -18,6 +18,17 @@
   margin: 0 -15px;
 }
 
+.navbar__logo,
+.navbar__menus {
+  padding: 0 15px;
+}
+
+.navbar__menus {
+  align-items: center;
+  display: flex;
+}
+
+/* Navbar Link  and Icon Link */
 .navbar__link {
   align-items: center;
   background-color: #433434;
@@ -29,16 +40,41 @@
   font-weight: 700;
   justify-content: center;
   line-height: 17px;
-  margin-right: 16px;
   min-width: 100px;
-  padding: 7px 15px 6px 15px;
+  padding: 6px 15px;
 }
 
-.navbar__link:last-child {
+.navbar__icon-link {
+  height: fit-content;
+  width: fit-content;
+}
+
+.navbar__link,
+.navbar__icon-link {
+  margin-right: 15px;
+}
+
+.navbar__link:last-child,
+.navbar__icon-link:last-child {
   margin-right: 0;
 }
 
-.navbar__menus {
-  display: flex;
-  padding: 0 15px;
+/* Navbar User Profile */
+.navbar__user-profile {
+  height: 60px;
+  width: 60px;
+}
+
+.navbar__user-profile > img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Navbar filler */
+.navbar__fixed-filler {
+  background-color: #ffc700;
+  height: 91px;
+  width: 100%;
 }

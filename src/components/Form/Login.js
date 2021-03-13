@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 // Styles.
-import '../styles/Form.css';
+import '../../styles/Form.css';
 
-const LoginForm = ({ onSwitch }) => {
+const Login = ({ onSwitch }) => {
     // States and Variables.
     const [form, setForm] = useState({
         email: '',
@@ -31,7 +31,7 @@ const LoginForm = ({ onSwitch }) => {
         <div className='Form'>
             <div className='form__header'>Login</div>
             <form onSubmit={onSubmit}>
-                <div>
+                <div className='form__input-container'>
                     <div className='form__input-group'>
                         <input 
                             name='email' 
@@ -62,4 +62,4 @@ const LoginForm = ({ onSwitch }) => {
     )
 }
 
-export default LoginForm;
+export default Login;
