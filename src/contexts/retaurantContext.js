@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-    const {type, payload} = action;
+    const { type, payload } = action;
     switch (type) {
         case 'ADD__MENU':
             return state;

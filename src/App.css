@@ -40,3 +40,12 @@ main {
   justify-content: center;
   margin: 2rem 0;
 }
+
+.normalize {
+  color: #000;
+}
+
+.normalize:hover {
+  color: #000;
+  text-decoration: none;
+}

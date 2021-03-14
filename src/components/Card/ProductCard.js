@@ -1,10 +1,16 @@
 import '../../styles/Card/ProductCard.css';
 
-const ProductCard = ({ img, data, type }) => {
+const ProductCard = ({ img, data, type, ...rest}) => {
     const renderType = () => {
         switch (type) {
             case 'order':
-                return null;
+                return (
+                    <>
+                        <div className='pc__name'>{ data.name }</div>
+                        <div className='pc__price'>{ `Rp ${data.price}` }</div>
+                        <div className='pc__order' onClick={rest.onOrder}>Order</div>
+                    </>
+                );
             default:
                 return (
                     <>
@@ -15,7 +21,7 @@ const ProductCard = ({ img, data, type }) => {
         }
     };
     return (
-        <div className='pc__card'>
+        <div className='pc__card' {...rest}>
             <div className='pc__image'><img src={img} alt={img}/></div>
             <div className='pc__content'>
                 { renderType() }

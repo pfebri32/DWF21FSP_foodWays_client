@@ -1,20 +1,24 @@
+import { useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-// Components.
-import RestaurantCard from "./RestaurantCard";
+// Contexts.
+import { RestaurantContext } from '../contexts/retaurantContext';
 
-// Data.
-import { getMostPopularRestaurants } from '../data/dummy';
+// Components.
 import BrandCard from "./Card/BrandCard";
 
 const PopularRestaurant = ({ style }) => {
-    const renderRestaurants = () => (
-        getMostPopularRestaurants(0, 4).map(({name, logo, id}) => (
+    const [state] = useContext(RestaurantContext);
+    const { restaurants } = state;
+    const renderRestaurants = () => {
+        const sorted = restaurants.sort((a, b) => a.popularRank - b.popularRank);
+        const result = sorted.slice(0, 4);
+        return result.map(({ id, logo, name }) => (
             <Col lg='3' key={id}>
-                <BrandCard name={name} logo={logo}/>
+                <BrandCard name={name} logo={logo} to={`/menu/${id}`}/>
             </Col>
-        ))
-    );
+        ));
+    };
     return (
         <div style={style}>
             <Container>

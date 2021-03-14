@@ -11,6 +11,11 @@
   padding: 15px;
 }
 
+.bc__card:hover {
+  color: #000;
+  text-decoration: none;
+}
+
 .bc__row {
   align-items: center;
   display: flex;

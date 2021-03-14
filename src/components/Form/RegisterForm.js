@@ -9,7 +9,7 @@ import '../../styles/Form.css';
 
 const RegisterForm = ({ onSwitch, onModalClose }) => {
     // Contexts.
-    const [dispatch] = useContext(UserContext);
+    const [state, dispatch] = useContext(UserContext);
 
     // States and Variables.
     const history = useHistory();
