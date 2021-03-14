@@ -49,3 +49,11 @@ main {
   color: #000;
   text-decoration: none;
 }
+
+.app__text-red {
+  color: #ff0000;
+}
+
+.app__text-bold {
+  font-weight: 700;
+}

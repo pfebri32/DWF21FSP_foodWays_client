@@ -4,21 +4,24 @@ export const CartContext = createContext();
 
 const initialState = {
     restaurantId: 0,
+    totalPrice: 0,
     totalQuantity: 0,
-    menus: [],
+    orders: [],
 };
 
 const reducer = (state, action) => {
     const { type, payload } = action;
     switch (type) {
+        case 'UPDATE_CART':
+            return payload;
         case 'ADD_CART':
-            // For add menu that change source of restaurant chain.
+            // For add order that change source of restaurant chain.
             if (state.restaurantId !== payload.restaurantId){
                 return {
                     restaurantId: payload.restaurantId,
+                    totalPrice: payload.price,
                     totalQuantity: 1,
-                    menus: [
-                        ...state.menus,
+                    orders: [
                         {
                             ...payload,
                             quantity: 1,
@@ -26,19 +29,19 @@ const reducer = (state, action) => {
                     ],
                 };
             }
-            // Add quantity menu if menu already in the cart.
-            const existedMenu = state.menus.find(menu => menu.id === payload.id);
-            console.log('Existed Menu', existedMenu);
-            if (existedMenu) {
-                const filtered = state.menus.filter(menu => menu.id !== payload.id);
-                console.log('Filtered Menu', filtered);
+            // Add quantity order if order already in the cart.
+            const existedOrder = state.orders.find(menu => menu.id === payload.id);
+            if (existedOrder) {
+                const filtered = state.orders.filter(menu => menu.id !== payload.id);
                 return {
                     ...state,
-                    menus: [
+                    totalPrice: state.totalPrice + existedOrder.price,
+                    totalQuantity: state.totalQuantity + 1,
+                    orders: [
                         ...filtered,
                         {
-                            ...existedMenu,
-                            quantity: existedMenu.quantity + 1,
+                            ...existedOrder,
+                            quantity: existedOrder.quantity + 1,
                         },
                     ],
                 };
@@ -46,9 +49,11 @@ const reducer = (state, action) => {
             // Add menu into cart normally.
             return {
                 ...state,
+                restaurantId: state.restaurantId,
+                totalPrice: state.totalPrice + payload.price,
                 totalQuantity: state.totalQuantity + 1,
-                menus: [
-                    ...state.menus,
+                orders: [
+                    ...state.orders,
                     {
                         ...payload,
                         quantity: 1,

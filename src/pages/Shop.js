@@ -25,7 +25,7 @@ const Menu = () => {
         const filtered = menus.filter(({restaurantId}) => restaurantId === parseInt(id));
         return filtered.map(menu => (
             <Col lg='3' key={menu.id} style={{marginBottom: 30}}>
-                <ProductCard data={menu} type='order' img={menu.img} onOrder={() => handleOrder(menu)}/>
+                <ProductCard data={menu} type='order' img={menu.img} onOrder={handleOrder}/>
             </Col>
         ));
     };
@@ -37,7 +37,6 @@ const Menu = () => {
             payload: menu,
         });
     };
-    console.log(cartState);
     return (
         <>
             <Container style={{marginTop: 60, marginBottom: 60}}>

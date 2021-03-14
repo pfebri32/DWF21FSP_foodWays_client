@@ -15,7 +15,7 @@ const PopularRestaurant = ({ style }) => {
         const result = sorted.slice(0, 4);
         return result.map(({ id, logo, name }) => (
             <Col lg='3' key={id}>
-                <BrandCard name={name} logo={logo} to={`/menu/${id}`}/>
+                <BrandCard name={name} logo={logo} to={`/shop/${id}`}/>
             </Col>
         ));
     };

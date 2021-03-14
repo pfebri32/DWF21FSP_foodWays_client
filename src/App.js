@@ -5,16 +5,18 @@ import './App.css';
 // Contexts.
 import { UserContextProvider } from './contexts/userContext';
 import { RestaurantContextProvider } from './contexts/retaurantContext';
+import { CartContextProvider } from './contexts/cartContext';
 
 // Pages.
 import Home from './pages/Home';
-import Menu from './pages/Menu';
+import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
 // Components.
 import Navbar from './components/Navbar';
-import { CartContextProvider } from './contexts/cartContext';
+import PrivateRoute from './components/PrivateRoute';
+import Cart from './pages/Cart';
 
 const App = () => {
   return (
@@ -29,7 +31,8 @@ const App = () => {
                     <Route path='/' component={Home} exact/>
                     <Route path='/login' component={Login} exact/>
                     <Route path='/register' component={Register} exact/>
-                    <Route path='/menu/:id' component={Menu} exact/>
+                    <PrivateRoute path='/shop/:id' component={Shop} exact/>
+                    <PrivateRoute path='/cart' component={Cart} exact/>
                   </Switch>
                 </main>
               </BrowserRouter>

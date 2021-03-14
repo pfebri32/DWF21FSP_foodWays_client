@@ -3,9 +3,33 @@ import { createContext, useReducer} from "react";
 export const UserContext = createContext();
 
 const initialState = {
-    isLogin: false,
-    user: null,
+    isLogin: true,
+    user: {
+        email: 'default@example.com',
+        password: 'secret',
+        name: 'Mr Default',
+        gender: 'Male',
+        phone: '088812344321',
+        role: 'user'
+    },
 };
+
+// const initialState = {
+//     isLogin: true,
+//     user: {
+//         email: 'default@example.com',
+//         password: 'secret',
+//         name: 'Mr Default',
+//         gender: 'Male',
+//         phone: '088812344321',
+//         role: 'partner'
+//     },
+// };
+
+// const initialState = {
+//     isLogin: false,
+//     user: null,
+// };
 
 const reducer = (state, action) => {
     const { type, payload } = action;

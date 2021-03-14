@@ -12,10 +12,12 @@ import RegisterForm from './Form/RegisterForm';
 // Styles.
 import '../styles/Navbar.css';
 import '../styles/Modal.css';
+import { CartContext } from '../contexts/cartContext';
 
 const Navbar = () => {
     // Contexts.
-    const [state] = useContext(UserContext);
+    const [userState] = useContext(UserContext);
+    const [cartState] = useContext(CartContext);
 
     // States and variables.
     const [show, setShow] = useState(false);
@@ -43,10 +45,13 @@ const Navbar = () => {
                         </div>
                         <div className='navbar__menus'>
                             {
-                                state.isLogin ? (
+                                userState.isLogin ? (
                                     <>
-                                        <Link  className='navbar__icon-link' to='/cart'>
+                                        <Link  className='navbar__icon-link navbar__cart-basket' to='/cart'>
                                             <img src='/assets/basket.svg' alt='Cart Icon'/>
+                                            {
+                                                cartState.orders.length !== 0 && <div className='navbar__cart-counter'>{ cartState.orders.length }</div>
+                                            }
                                         </Link>
                                         <div className='navbar__user-profile'>
                                             <img src='/assets/profile.jpg' alt='User Profile'/>

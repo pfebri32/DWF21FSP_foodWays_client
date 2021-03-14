@@ -78,3 +78,25 @@
   height: 91px;
   width: 100%;
 }
+
+/* Navbar Basket Counter */
+.navbar__cart-basket {
+  position: relative;
+}
+
+.navbar__cart-counter {
+  align-items: center;
+  background-color: #ff0000;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  font-size: 12px;
+  height: 15px;
+  width: 15px;
+  justify-content: center;
+  line-height: 15px;
+  position: absolute;
+
+  top: 0;
+  right: 0;
+}

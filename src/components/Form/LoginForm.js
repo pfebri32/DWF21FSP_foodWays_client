@@ -27,6 +27,7 @@ const LoginForm = ({ onSwitch, onModalClose }) => {
             [name]: e.target.value,
         });
     };
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch({

@@ -8,7 +8,7 @@ const ProductCard = ({ img, data, type, ...rest}) => {
                     <>
                         <div className='pc__name'>{ data.name }</div>
                         <div className='pc__price'>{ `Rp ${data.price}` }</div>
-                        <div className='pc__order' onClick={rest.onOrder}>Order</div>
+                        <div className='pc__order' onClick={() => rest.onOrder(data)}>Order</div>
                     </>
                 );
             default:

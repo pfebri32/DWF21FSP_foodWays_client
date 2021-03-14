@@ -104,3 +104,42 @@
 .form__link:hover {
   text-decoration: underline;
 }
+
+/* Delivery Location */
+.form__location-header {
+  color: #613d2b;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.form__location-field {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  flex: 1;
+}
+
+.form__location-button {
+  align-items: center;
+  background-color: #433434;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 19px;
+  width: 240px;
+}
+
+.form__location-icon {
+  margin-left: 15px;
+}
+
+.form__location-field,
+.form__location-button {
+  border-radius: 5px;
+  margin: 0 15px;
+  padding: 12px 15px;
+}

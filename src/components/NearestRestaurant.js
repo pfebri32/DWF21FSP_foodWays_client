@@ -16,7 +16,7 @@ const NearestRestaurant = ({ style }) => {
         return (
             result.map(restaurant => (
                 <Col lg='3' key={restaurant.id}>
-                    <Link className='normalize' to={`/menu/${restaurant.id}`}>
+                    <Link className='normalize' to={`/shop/${restaurant.id}`}>
                         <ProductCard data={restaurant} img={restaurant.img}/>
                     </Link>
                 </Col>
