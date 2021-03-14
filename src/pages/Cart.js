@@ -18,6 +18,7 @@ const Cart = () => {
     const [restaurantState, restaurantDispatch] = useContext(RestaurantContext);
 
     // Vars and States.
+    const deliveryCost = 10000;
     const [cart, setCart] = useState(cartState);
     const { restaurantId, orders } = cart;
     const { restaurants } =  restaurantState;
@@ -135,13 +136,13 @@ const Cart = () => {
                                             </div>
                                             <div className='cart__info-group'>
                                                 <div className='cart__info-label'>Ongkir</div>
-                                                <div className='cart__info-value app__text-red'>{ `Rp 10000` }</div>
+                                                <div className='cart__info-value app__text-red'>{ `Rp ${deliveryCost}` }</div>
                                             </div>
                                         </div>
                                         <div className='cart__total-group'>
                                             <div className='cart__info-group app__text-red app__text-bold'>
                                                 <div className='cart__info-label'>Total</div>
-                                                <div className='cart__info-value'>{ `Rp 10000` }</div>
+                                                <div className='cart__info-value'>{ `Rp ${deliveryCost + cart.totalPrice}` }</div>
                                             </div>
                                         </div>
                                     </div>
