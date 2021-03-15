@@ -9,6 +9,7 @@ import '../../styles/Form.css';
 
 const RegisterForm = ({ onSwitch, onModalClose }) => {
     // Contexts.
+    // eslint-disable-next-line
     const [state, dispatch] = useContext(UserContext);
 
     // States and Variables.
@@ -42,6 +43,13 @@ const RegisterForm = ({ onSwitch, onModalClose }) => {
                 gender,
                 phone,
                 role,
+                location: {
+                    name: 'Jakarta',
+                    coordinate: {
+                        lat: -6.1537,
+                        lng: 106.8176,
+                    },
+                },
             },
         });
         onModalClose && onModalClose();

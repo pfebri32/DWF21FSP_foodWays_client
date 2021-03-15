@@ -46,6 +46,7 @@
   background-color: #433434;
   border-radius: 5px;
   color: #ffffff;
+  cursor: pointer;
   display: flex;
   padding: 12px 15px;
   font-size: 14px;
@@ -54,4 +55,17 @@
   line-height: 17px;
   margin: 30px 0 0 auto;
   max-width: 240px;
+}
+
+.cart__empty {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 30px 15px;
+  border-radius: 5px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
 }

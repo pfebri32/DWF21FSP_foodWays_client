@@ -57,3 +57,15 @@ main {
 .app__text-bold {
   font-weight: 700;
 }
+
+.map__container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.mapboxgl-control-container {
+  display: none;
+}

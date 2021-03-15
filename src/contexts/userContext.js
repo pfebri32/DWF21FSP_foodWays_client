@@ -10,7 +10,14 @@ const initialState = {
         name: 'Mr Default',
         gender: 'Male',
         phone: '088812344321',
-        role: 'user'
+        location: {
+            name: 'Jakarta',
+            coordinate: {
+                lat: -6.1537,
+                lng: 106.8176,
+            },
+        },
+        role: 'user',
     },
 };
 
@@ -34,6 +41,16 @@ const initialState = {
 const reducer = (state, action) => {
     const { type, payload } = action;
     switch (type) {
+        case 'UPDATE_PROFILE':
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    name: payload.name,
+                    email: payload.email,
+                    gender: payload.gender,
+                },
+            };
         case 'LOGIN':
             return {
                 isLogin: true,

@@ -1,0 +1,62 @@
+.hc__card {
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.hc__card:last-child {
+  margin-bottom: 0;
+}
+
+.hc__name {
+  font-family: 'Abhaya Libre', serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 17px;
+}
+
+.hc__date {
+  font-size: 9px;
+  line-height: 12px;
+  margin-top: 6px;
+}
+
+.hc__date > span {
+  font-weight: 900;
+}
+
+.hc__cost {
+  align-items: flex-end;
+  color: #974a4a;
+  display: flex;
+  flex: 1;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 14px;
+}
+
+.hc__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.hc__status {
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 117, 0.1) 0%,
+    rgba(0, 255, 133, 0.1) 100%
+  );
+  border-radius: 5px;
+  color: #00ff47;
+  display: flex;
+  font-size: 10px;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 14px;
+  margin-top: 12px;
+  padding: 3px 15px;
+}

@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 
 // TEMPORARY!
-import { restaurants, menus } from '../data/dummy';
+import { restaurants, menus } from '../api/dummy';
 
 export const RestaurantContext = createContext();
 
@@ -11,6 +11,7 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
+    // eslint-disable-next-line
     const { type, payload } = action;
     switch (type) {
         case 'ADD__MENU':

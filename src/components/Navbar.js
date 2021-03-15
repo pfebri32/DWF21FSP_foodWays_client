@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 import { Container, Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // Contexts.
 import { UserContext } from '../contexts/userContext';
+import { CartContext } from '../contexts/cartContext';
 
 // Components.
 import LoginForm from './Form/LoginForm';
@@ -12,16 +13,20 @@ import RegisterForm from './Form/RegisterForm';
 // Styles.
 import '../styles/Navbar.css';
 import '../styles/Modal.css';
-import { CartContext } from '../contexts/cartContext';
 
 const Navbar = () => {
+
     // Contexts.
     const [userState] = useContext(UserContext);
     const [cartState] = useContext(CartContext);
 
     // States and variables.
-    const [show, setShow] = useState(false);
-    const [hasAccount, setHasAccount] = useState(false);
+    const query = new URLSearchParams(useLocation().search);
+    const { isLogin } = userState;
+    const { orders } = cartState;
+    const [show, setShow] = useState(query.get('modal') && isLogin);
+    const [isDropdown, setIsDropdown] = useState(false);
+    const [hasAccount, setHasAccount] = useState(true);
 
     // Handlers.
     const handleClose = () => setShow(false);
@@ -45,15 +50,19 @@ const Navbar = () => {
                         </div>
                         <div className='navbar__menus'>
                             {
-                                userState.isLogin ? (
+                                isLogin ? (
                                     <>
                                         <Link  className='navbar__icon-link navbar__cart-basket' to='/cart'>
                                             <img src='/assets/basket.svg' alt='Cart Icon'/>
                                             {
-                                                cartState.orders.length !== 0 && <div className='navbar__cart-counter'>{ cartState.orders.length }</div>
+                                                orders.length > 0 && (
+                                                    <div className='navbar__cart-counter'>
+                                                        { cartState.totalQuantity < 100 ? cartState.totalQuantity : '99+'}
+                                                    </div>
+                                                )
                                             }
                                         </Link>
-                                        <div className='navbar__user-profile'>
+                                        <div className='navbar__user-profile' onClick={() => setIsDropdown(prev => !prev)}>
                                             <img src='/assets/profile.jpg' alt='User Profile'/>
                                         </div>
                                     </>
@@ -70,6 +79,33 @@ const Navbar = () => {
             </div>
 
             <div className='navbar__fixed-filler'/>
+
+            {
+                isLogin && (
+                    <div className={ `navbar__dropdown ${isDropdown && 'show'}` }>
+                        <div className='navbar__dropdown-group'>
+                            <Link className='normalize' to='/profile' onClick={() => setIsDropdown(false)}>
+                                <div className='navbar__dropdown-icon'><img src='/assets/user.svg' alt='User Icon'/></div>
+                                <div className='navbar__dropdown-title'>Profile</div>
+                            </Link>
+                            {
+                                userState.user.role === 'partner' && (
+                                    <Link className='normalize' to='/product/add' onClick={() => setIsDropdown(false)}>
+                                        <div className='navbar__dropdown-icon'><img src='/assets/product.svg' alt='Product Icon'/></div>
+                                        <div className='navbar__dropdown-title'>Add Product</div>
+                                    </Link>
+                                )
+                            }
+                        </div>
+                        <div className='navbar__dropdown-group'>
+                            <Link className='normalize' to='/logout' onClick={() => setIsDropdown(false)}>
+                                <div className='navbar__dropdown-icon'><img src='/assets/logout.svg' alt='Logout Icon'/></div>
+                                <div className='navbar__dropdown-title'>Logout</div>
+                            </Link>
+                        </div>
+                    </div>
+                )
+            }
 
             <Modal 
                 centered

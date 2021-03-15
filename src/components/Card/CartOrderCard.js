@@ -1,3 +1,5 @@
+import NumberFormat from 'react-number-format';
+
 // Styles.
 import '../../styles/Card/CartOrderCard.css';
 
@@ -8,7 +10,16 @@ const CartOrderCard = ({ id, name, price, img, quantity, onIncrease, onDecrease,
             <div className='coc__content'>
                 <div className='coc__top'>
                     <div className='coc__name'>{ name }</div>
-                    <div className='coc__price'>{ `Rp ${price}` }</div>
+                    {/* <div className='coc__price'>{ `Rp ${price}` }</div> */}
+                    <div className='coc__price'>
+                        <NumberFormat 
+                            value={price} 
+                            thousandSeparator='.' 
+                            decimalSeparator=','
+                            prefix='Rp '
+                            displayType='text'
+                        />    
+                    </div>
                 </div>
                 <div className='coc__bottom'>
                     <div className='coc__quantity-controller'>

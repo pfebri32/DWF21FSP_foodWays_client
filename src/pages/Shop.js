@@ -12,6 +12,7 @@ import ProductCard from "../components/Card/ProductCard";
 const Menu = () => {
     // Contexts.
     const [restaurantState] = useContext(RestaurantContext);
+    // eslint-disable-next-line
     const [cartState, cartDispatch] = useContext(CartContext);
 
     // Vars and States.

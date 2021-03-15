@@ -1,3 +1,6 @@
+import NumberFormat from 'react-number-format';
+
+// Styles.
 import '../../styles/Card/ProductCard.css';
 
 const ProductCard = ({ img, data, type, ...rest}) => {
@@ -7,7 +10,16 @@ const ProductCard = ({ img, data, type, ...rest}) => {
                 return (
                     <>
                         <div className='pc__name'>{ data.name }</div>
-                        <div className='pc__price'>{ `Rp ${data.price}` }</div>
+                        {/* <div className='pc__price'>{ `Rp ${data.price}` }</div> */}
+                        <div className='pc__price'>
+                            <NumberFormat 
+                                value={data.price} 
+                                thousandSeparator='.' 
+                                decimalSeparator=','
+                                prefix='Rp '
+                                displayType='text'
+                            />    
+                        </div>
                         <div className='pc__order' onClick={() => rest.onOrder(data)}>Order</div>
                     </>
                 );

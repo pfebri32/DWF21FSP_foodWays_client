@@ -9,6 +9,7 @@ import '../../styles/Form.css';
 
 const LoginForm = ({ onSwitch, onModalClose }) => {
     // Contexts.
+    // eslint-disable-next-line
     const [state, dispatch] = useContext(UserContext);
 
     // States and Variables.
@@ -39,6 +40,13 @@ const LoginForm = ({ onSwitch, onModalClose }) => {
                 gender: 'Male',
                 phone: '088812344321',
                 role: 'user',
+                location: {
+                    name: 'Jakarta',
+                    coordinate: {
+                        lat: -6.1537,
+                        lng: 106.8176,
+                    },
+                },
             },
         });
         onModalClose && onModalClose();
