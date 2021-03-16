@@ -70,13 +70,13 @@ const Cart = () => {
         let price = order.price;
         order.quantity = order.quantity + increase;
         price *= increase;
-        const newTotalPrice = cartState.totalPrice + price;
-        const newTotalQuantity = cartState.totalQuantity + increase;
         if (order.quantity < 1) {
             price = 0;
             increase = 0;
             order.quantity = 1;
         }
+        const newTotalPrice = cartState.totalPrice + price;
+        const newTotalQuantity = cartState.totalQuantity + increase;
         cartDispatch({
             type: 'UPDATE_CART',
             payload: {

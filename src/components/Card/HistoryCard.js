@@ -1,3 +1,4 @@
+import NumberFormat from 'react-number-format';
 import { Link } from 'react-router-dom';
 
 import '../../styles/Card/HistoryCard.css';
@@ -10,7 +11,16 @@ const HistoryCard = ({ name, day, date, cost, status, to }) => {
                 <div className='hc__date'>
                     <span>{ day }</span>, { date }
                 </div>
-                <div className='hc__cost'>{ `Total: ${cost}` }</div>
+                {/* <div className='hc__cost'>{ `Total: ${cost}` }</div> */}
+                <div className='hc__cost'>
+                    <NumberFormat 
+                        value={cost} 
+                        thousandSeparator='.' 
+                        decimalSeparator=','
+                        prefix='Rp '
+                        displayType='text'
+                    />    
+                </div>
             </div>
             <div className='hc__right'>
                 <div className='hc__logo'><img src='/assets/logo.svg' alt='Logo'/></div>
